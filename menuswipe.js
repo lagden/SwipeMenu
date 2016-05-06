@@ -3,42 +3,18 @@
 
 'use strict';
 
-const h = document.querySelector('#hamburguerTrigger');
-const menu = document.querySelector('#menu');
-const obfuscator = document.querySelector('#obfuscator');
-
-function _bubblingMatchesSelector(target, selector) {
-	if (!target) {
-		return;
-	}
-	if (target.matches(selector)) {
-		return target;
-	}
-	return _bubblingMatchesSelector(target.parentElement, selector);
-}
-
-const handlers = {
-	menuHandler() {
-		menu.classList.add('menu--open');
-		obfuscator.classList.add('is-visible');
-	},
-	obfuscatorHandler() {
-		menu.classList.remove('menu--open');
-		obfuscator.classList.remove('is-visible');
-	}
-};
-
-h.addEventListener('click', handlers.menuHandler, false);
-obfuscator.addEventListener('click', handlers.obfuscatorHandler, false);
-
-class MenuSwipe {
-	constructor(menuID) {
+class SwipeMenu {
+	constructor(menuID, hamburguerID, obfuscatorID) {
+		this.hamburguer = document.querySelector(hamburguerID);
+		this.obfuscator = document.querySelector(obfuscatorID);
 		this.menu = document.querySelector(menuID);
 		this.width = this.menu.getBoundingClientRect().width;
-		this.body = document.body;
-		this.body.addEventListener('touchstart', this, true);
-		this.body.addEventListener('touchmove', this, true);
-		this.body.addEventListener('touchend', this, true);
+
+		document.body.addEventListener('touchstart', this, true);
+		document.body.addEventListener('touchmove', this, true);
+		document.body.addEventListener('touchend', this, true);
+		this.hamburguer.addEventListener('click', this, false);
+		this.obfuscator.addEventListener('click', this, false);
 	}
 
 	ontouchstart(event) {
@@ -67,18 +43,54 @@ class MenuSwipe {
 	ontouchend() {
 		if (this.check) {
 			const translateX = Number(this.menu.style.transform.replace(/[^\d]/g, ''));
-			const key = translateX < this.width / 2 ? 'menuHandler' : 'obfuscatorHandler';
+			const method = translateX < this.width / 2 ? 'hamburguerHandler' : 'obfuscatorHandler';
 			this.check = false;
 			this.menu.style.transform = '';
 			this.menu.classList.remove('menu--dragging');
-			handlers[key]();
+			this[method]();
 		}
 	}
 
+	hamburguerHandler() {
+		this.menu.classList.add('menu--open');
+		this.obfuscator.classList.add('is-visible');
+	}
+
+	obfuscatorHandler() {
+		this.menu.classList.remove('menu--open');
+		this.obfuscator.classList.remove('is-visible');
+	}
+
 	handleEvent(event) {
-		const m = `on${event.type}`;
-		if (this[m]) {
-			this[m](event);
+		switch (event.type) {
+			case 'click':
+				if (event.target.matches('.hamburguer')) {
+					this.hamburguerHandler();
+				} else {
+					this.obfuscatorHandler();
+				}
+				break;
+			case 'touchstart':
+				this.ontouchstart(event);
+				break;
+			case 'touchmove':
+				this.ontouchmove(event);
+				break;
+			case 'touchend':
+				this.ontouchend();
+				break;
+			default:
+				break;
 		}
 	}
+}
+
+function _bubblingMatchesSelector(target, selector) {
+	if (!target) {
+		return;
+	}
+	if (target.matches(selector)) {
+		return target;
+	}
+	return _bubblingMatchesSelector(target.parentElement, selector);
 }
