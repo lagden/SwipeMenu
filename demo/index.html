@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta charset="utf-8">
+		<title>MenuSwipe</title>
+		<link rel="stylesheet" href="demo/styles.css">
+	</head>
+	<body>
+		<div class="layout">
+			<div class="layoutContent">
+				<div id="menu" class="menu">
+					<div class="menuLista">
+						<h3 class="menuLista__title">Opções</h3>
+						<nav class="menuLista__nav"><a href="#cotacao"><span>Cotação</span></a><a href="#proposta"><span>Proposta</span></a><a href="#apolice"><span>Apólice</span></a></nav>
+					</div>
+				</div>
+				<main class="layoutContent__main content">
+					<h1 id="hamburguerTrigger" class="hamburguer">☰</h1>
+					<section>
+						<header>
+							<h1>Content</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua.</p>
+						</header>
+						<ul>
+							<li><a href="#">Lorem</a></li>
+							<li><a href="#">ipsum</a></li>
+							<li><a href="#">dolor</a></li>
+						</ul>
+					</section>
+				</main>
+				<div id="obfuscator" class="layoutContent__obfuscator"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="menuswipe.js"></script>
+		<script type="text/javascript">
+			const drag = new MenuSwipe('#menu');
+		</script>
+	</body>
+</html>
