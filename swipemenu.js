@@ -33,7 +33,6 @@ class SwipeMenu {
 	}
 
 	ontouchmove(event) {
-		console.log(this.menuSelector);
 		if (this.startX <= 15 || this.target.id === this.menuSelector.substr(1)) {
 			event.preventDefault();
 			event.stopPropagation();
