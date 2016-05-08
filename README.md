@@ -11,7 +11,7 @@
 <!-- [devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg -->
 <!-- [devDep]:     https://david-dm.org/felipoliveira/SwipeMenu#info=devDependencies -->
 
-A JavaScript library for swiping off-canvas menus
+It's a lightweight JavaScript library for swiping off-canvas menus
 
 
 ## Install
