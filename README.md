@@ -2,14 +2,19 @@
 
 <!-- [![Build Status][ci-img]][ci] -->
 <!-- [![Coverage Status][cover-img]][cover] -->
-<!-- [![devDependency Status][devDep-img]][devDep] -->
+[![Dependency Status][dep-img]][dev]
+[![devDependency Status][devDep-img]][devDep]
 
 <!-- [ci-img]:     https://travis-ci.org/felipoliveira/SwipeMenu.svg -->
 <!-- [ci]:         https://travis-ci.org/felipoliveira/SwipeMenu -->
 <!-- [cover-img]:  https://codecov.io/github/felipoliveira/SwipeMenu/coverage.svg?branch=master -->
 <!-- [cover]:      https://codecov.io/github/felipoliveira/SwipeMenu?branch=master -->
-<!-- [devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg -->
-<!-- [devDep]:     https://david-dm.org/felipoliveira/SwipeMenu#info=devDependencies -->
+[dep-img]: https://david-dm.org/felipoliveira/SwipeMenu.svg
+[dep]: https://david-dm.org/felipoliveira/SwipeMenu
+[devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg
+[devDep]:     https://david-dm.org/felipoliveira/SwipeMenu#info=devDependencies
+
+[![Dependency Status](https://david-dm.org/lagden/growl.svg)](https://david-dm.org/lagden/growl)
 
 It's a lightweight JavaScript library for swiping off-canvas menus
 
@@ -19,11 +24,13 @@ It's a lightweight JavaScript library for swiping off-canvas menus
 Via [NPM](https://www.npmjs.com/)
 
 ```
-npm i -S github:felipoliveira/SwipeMenu
+npm i -S swipe-menu
 ```
 
 
 ## Usage
+
+See code example [here](https://github.com/felipoliveira/SwipeMenu/tree/master/example)
 
 ```javascript
 const swipeMenu = SwipeMenu('#menu');

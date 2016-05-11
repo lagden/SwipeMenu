@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "It's a lightweight JavaScript library for swiping off-canvas menus",
   "main": "swipemenu.js",
+  "jsnext:main": "swipemenu.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "BABEL_ENV=ava nyc ava",
+    "rollup": "BABEL_ENV=rollup rollup -c rollup.config.js",
+    "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
+    "build": "npm test && npm run rollup && npm run pretty"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,9 @@
     "url": "https://github.com/felipoliveira/SwipeMenu/issues"
   },
   "homepage": "https://github.com/felipoliveira/SwipeMenu#readme",
+  "dependencies": {
+    "wolfy87-eventemitter": "5.0.0"
+  },
   "devDependencies": {
     "ava": "0.14.0",
     "babel": "6.5.2",
@@ -36,6 +43,47 @@
     "nyc": "6.4.4",
     "rollup": "0.26.2",
     "rollup-plugin-babel": "2.4.0",
+    "rollup-plugin-commonjs": "2.2.1",
+    "rollup-plugin-node-resolve": "1.5.0",
     "xo": "0.15.0"
+  },
+  "xo": {
+    "ignore": [
+      "dist/*.js"
+    ],
+    "envs": [
+      "es6"
+    ],
+    "esnext": true,
+    "global": [
+      "window",
+      "document",
+      "HTMLElement"
+    ]
+  },
+  "babel": {
+    "env": {
+      "rollup": {
+        "presets": [
+          "es2015-rollup"
+        ]
+      },
+      "ava": {
+        "presets": [
+          "es2015"
+        ]
+      }
+    }
+  },
+  "ava": {
+    "files": [
+      "test/index.js"
+    ],
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
+    ],
+    "failFast": true,
+    "cacheEnabled": false
   }
 }

@@ -2,6 +2,8 @@
 
 'use strict';
 
+import EventEmitter from 'wolfy87-eventemitter';
+
 function bubbling(target, selector) {
 	if (!target) {
 		return false;
@@ -19,6 +21,7 @@ class SwipeMenu {
 		if (!this.menu) {
 			throw new Error('✖ Missing menu');
 		}
+		this.ee = new EventEmitter();
 		this.width = this.menu.getBoundingClientRect().width;
 		document.body.addEventListener('touchstart', this, true);
 		document.body.addEventListener('touchmove', this, true);
@@ -60,10 +63,12 @@ class SwipeMenu {
 	}
 
 	open() {
+		this.ee.emit('trigger', ['add']);
 		this.menu.classList.add('menu--open');
 	}
 
 	close() {
+		this.ee.emit('trigger', ['remove']);
 		this.menu.classList.remove('menu--open');
 	}
 
