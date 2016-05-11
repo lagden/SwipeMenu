@@ -1,20 +1,19 @@
 # SwipeMenu
 
-<!-- [![Build Status][ci-img]][ci] -->
-<!-- [![Coverage Status][cover-img]][cover] -->
-[![Dependency Status][dep-img]][dev]
+<!--[![Build Status][ci-img]][ci]-->
+<!--[![Coverage Status][cover-img]][cover]-->
+[![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 
-<!-- [ci-img]:     https://travis-ci.org/felipoliveira/SwipeMenu.svg -->
-<!-- [ci]:         https://travis-ci.org/felipoliveira/SwipeMenu -->
-<!-- [cover-img]:  https://codecov.io/github/felipoliveira/SwipeMenu/coverage.svg?branch=master -->
-<!-- [cover]:      https://codecov.io/github/felipoliveira/SwipeMenu?branch=master -->
-[dep-img]: https://david-dm.org/felipoliveira/SwipeMenu.svg
-[dep]: https://david-dm.org/felipoliveira/SwipeMenu
+[ci-img]:     https://travis-ci.org/felipoliveira/SwipeMenu.svg
+[ci]:         https://travis-ci.org/felipoliveira/SwipeMenu
+[cover-img]:  https://codecov.io/github/felipoliveira/SwipeMenu/coverage.svg?branch=master
+[cover]:      https://codecov.io/github/felipoliveira/SwipeMenu?branch=master
+[dep-img]:    https://david-dm.org/felipoliveira/SwipeMenu.svg
+[dep]:        https://david-dm.org/felipoliveira/SwipeMenu
 [devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg
 [devDep]:     https://david-dm.org/felipoliveira/SwipeMenu#info=devDependencies
 
-[![Dependency Status](https://david-dm.org/lagden/growl.svg)](https://david-dm.org/lagden/growl)
 
 It's a lightweight JavaScript library for swiping off-canvas menus
 
