@@ -15,8 +15,9 @@ function bubbling(target, selector) {
 }
 
 class SwipeMenu {
-	constructor(menu) {
+	constructor(menu, swipePoint) {
 		this.menuSelector = menu;
+		this.swipePoint = swipePoint;
 		this.menu = document.querySelector(menu);
 		if (!this.menu) {
 			throw new Error('✖ Missing menu');
@@ -36,7 +37,7 @@ class SwipeMenu {
 	}
 
 	ontouchmove(event) {
-		if (this.startX <= 15 || this.target.id === this.menuSelector.substr(1)) {
+		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
 			event.preventDefault();
 			event.stopPropagation();
 			this.check = true;
@@ -44,7 +45,7 @@ class SwipeMenu {
 				this.menu.classList.add('menu--dragging');
 			}
 			const moveX = event.targetTouches[0].pageX;
-			const position = this.target.id === 'menu' ? moveX - this.startX : moveX - this.width;
+			const position = this.target.id === this.menuSelector.substr(1) ? moveX - this.startX : moveX - this.width;
 			if (position > -this.width && position <= 0) {
 				this.menu.style.transform = `translateX(${position}px)`;
 			}
