@@ -39,6 +39,7 @@
     "babel-preset-es2015-rollup": "1.1.1",
     "babel-register": "6.8.0",
     "coveralls": "2.11.9",
+    "documentation": "^4.0.0-beta2",
     "esformatter": "0.9.3",
     "jsdom": "9.0.0",
     "nyc": "6.4.4",
