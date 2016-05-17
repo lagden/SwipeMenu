@@ -8,6 +8,7 @@
     "test": "BABEL_ENV=ava nyc ava",
     "rollup": "BABEL_ENV=rollup rollup -c rollup.config.js",
     "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
+    "doc": "documentation build -f md swipemenu.js > documentation.md",
     "build": "npm test && npm run rollup && npm run pretty"
   },
   "repository": {
