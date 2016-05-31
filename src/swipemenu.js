@@ -12,8 +12,9 @@ function bubbling(target, selector) {
 }
 
 class SwipeMenu {
-	constructor(menu) {
+	constructor(menu, swipePoint = 20) {
 		this.menuSelector = menu;
+		this.swipePoint = swipePoint;
 		this.menu = document.querySelector(menu);
 
 		if (!this.menu) {
@@ -43,8 +44,8 @@ class SwipeMenu {
 		this.target = menuIsOpen ? bubbling(event.target, this.menuSelector) : event.currentTarget;
 	}
 
-	onTouchmove(event) {
-		if (this.startX <= 20 || this.target.id === this.menuSelector.substr(1)) {
+	ontouchmove(event) {
+		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
 			event.preventDefault();
 			event.stopPropagation();
 			this.check = true;
@@ -52,7 +53,7 @@ class SwipeMenu {
 				this.menu.classList.add('swipemenu--dragging');
 			}
 			const moveX = event.targetTouches[0].pageX;
-			const position = this.target.id === 'menu' ? moveX - this.startX : moveX - this.width;
+			const position = this.target.id === this.menuSelector.substr(1) ? moveX - this.startX : moveX - this.width;
 			if (position > -this.width && position <= 0) {
 				this.menu.style.transform = `translateX(${position}px)`;
 				this.param.detail.percent = 1 - Math.abs(position) / Math.abs(this.width);
