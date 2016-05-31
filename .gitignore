@@ -1,4 +1,5 @@
 .nyc_output
+.ghtoken
 coverage
 node_modules
 dist

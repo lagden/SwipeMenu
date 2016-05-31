@@ -1,7 +1,7 @@
 # SwipeMenu
 
 [![Build Status][ci-img]][ci]
-<!--[![Coverage Status][cover-img]][cover]-->
+[![Coverage Status][cover-img]][cover]
 [![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 
@@ -26,14 +26,15 @@ Via [NPM](https://www.npmjs.com/)
 npm i -S swipe-menu
 ```
 
+## Docs
+
+[See docs](https://felipoliveira.github.io/SwipeMenu/docs)
+
 
 ## Usage
 
-See code example [here](https://github.com/felipoliveira/SwipeMenu/tree/master/example)
-
-```javascript
-const swipeMenu = SwipeMenu('#menu');
-```
+[See code example](https://github.com/felipoliveira/SwipeMenu/tree/gh-pages)  
+[See example in action](https://felipoliveira.github.io/SwipeMenu/)
 
 
 ## Team

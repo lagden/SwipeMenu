@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+cd $DIR
+cd ..
+CURR_FOLDER=`pwd`
+
+# Root
+cd $CURR_FOLDER
+
+set -e
+
+GH_TOKEN=`cat .ghtoken`
+MD5=`md5 -q -s $(date +%m%d%H%M%Y%S)`
+GO=/tmp/${MD5}
+
+mkdir -p ${GO}
+npm run build
+cp -r dist ${GO}
+cp -r docs ${GO}/dist
+cp example/* ${GO}/dist
+
+cd ${GO}/dist
+git init
+git add .
+git commit -m "Deploy to GitHub Pages"
+git push --force --quiet "https://${GH_TOKEN}@github.com/felipoliveira/SwipeMenu.git" master:gh-pages > /dev/null 2>&1
+rm -rf ${GO};
+
+exit 0

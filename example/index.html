@@ -25,24 +25,26 @@
 		<div id="obfuscator" class="obfuscator" data-method="remove"></div>
 		<script src="../dist/swipemenu.js"></script>
 		<script>
-			var swipeMenu = new SwipeMenu('#menu');
-			var hamburguer = document.querySelector('#hamburguer');
-			var obfuscator = document.querySelector('#obfuscator');
+			const swipeMenu = new SwipeMenu('#menu');
+			const hamburguer = document.querySelector('#hamburguer');
+			const obfuscator = document.querySelector('#obfuscator');
 
 			function onToggle(event, method) {
-				var m = event ? event.currentTarget.dataset.method : method || 'remove';
+				const m = event ? event.currentTarget.dataset.method : method || 'remove';
 				swipeMenu.menu.classList[m]('swipemenu--open');
 				obfuscator.classList[m]('obfuscator--visible');
 			}
 
 			hamburguer.addEventListener('click', onToggle);
 			obfuscator.addEventListener('click', onToggle);
-			swipeMenu.menu.addEventListener('update', function(event) {
+
+			swipeMenu.menu.addEventListener('update', event => {
 				obfuscator.classList.add('obfuscator--update');
 				obfuscator.style.opacity = event.detail.percent;
 				onToggle(null, event.detail.method);
 			});
-			swipeMenu.menu.addEventListener('end', function(event) {
+
+			swipeMenu.menu.addEventListener('end', event => {
 				obfuscator.classList.remove('obfuscator--update');
 				obfuscator.style.opacity = '';
 				onToggle(null, event.detail.method);

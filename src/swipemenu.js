@@ -1,5 +1,23 @@
 'use strict';
 
+/**
+ * Apenas um show
+ * blablab
+ *
+ * @see https://lagden.in
+ * @author felipe
+ */
+
+/**
+ * Returns the library version.
+ *
+ * @private
+ * @returns {Boolean} If is Apple Mobile.
+ */
+function isIOS() {
+	return (/(iPhone|iPad|iPod)/gi).test(navigator.platform);
+}
+
 function bubbling(target, selector) {
 	if (!target) {
 		return false;
@@ -13,6 +31,10 @@ function bubbling(target, selector) {
 
 class SwipeMenu {
 	constructor(menu, swipePoint = 20) {
+		if (isIOS()) {
+			return;
+		}
+
 		this.menuSelector = menu;
 		this.swipePoint = swipePoint;
 		this.menu = document.querySelector(menu);
@@ -44,7 +66,7 @@ class SwipeMenu {
 		this.target = menuIsOpen ? bubbling(event.target, this.menuSelector) : event.currentTarget;
 	}
 
-	ontouchmove(event) {
+	onTouchmove(event) {
 		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
 			event.preventDefault();
 			event.stopPropagation();
@@ -53,7 +75,7 @@ class SwipeMenu {
 				this.menu.classList.add('swipemenu--dragging');
 			}
 			const moveX = event.targetTouches[0].pageX;
-			const position = this.target.id === this.menuSelector.substr(1) ? moveX - this.startX : moveX - this.width;
+			const position = this.target.id === this.menu.id ? moveX - this.startX : moveX - this.width;
 			if (position > -this.width && position <= 0) {
 				this.menu.style.transform = `translateX(${position}px)`;
 				this.param.detail.percent = 1 - Math.abs(position) / Math.abs(this.width);
