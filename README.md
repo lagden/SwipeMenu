@@ -1,14 +1,14 @@
 # SwipeMenu
 
-<!--[![Build Status][ci-img]][ci]-->
+[![Build Status][ci-img]][ci]
 <!--[![Coverage Status][cover-img]][cover]-->
 [![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 
 [ci-img]:     https://travis-ci.org/felipoliveira/SwipeMenu.svg
 [ci]:         https://travis-ci.org/felipoliveira/SwipeMenu
-[cover-img]:  https://codecov.io/github/felipoliveira/SwipeMenu/coverage.svg?branch=master
-[cover]:      https://codecov.io/github/felipoliveira/SwipeMenu?branch=master
+[cover-img]:  https://coveralls.io/repos/felipoliveira/SwipeMenu/badge.svg?branch=master&service=github
+[cover]:      https://coveralls.io/github/felipoliveira/SwipeMenu?branch=master
 [dep-img]:    https://david-dm.org/felipoliveira/SwipeMenu.svg
 [dep]:        https://david-dm.org/felipoliveira/SwipeMenu
 [devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg

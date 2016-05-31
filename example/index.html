@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Example - Swipe Menu</title>
+		<link rel="stylesheet" href="example.css">
+		<link rel="stylesheet" href="../dist/swipemenu.css">
+	</head>
+	<body>
+		<div id="menu" class="swipemenu">
+			<div class="menuLista">
+				<h3 class="menuLista__title">Options</h3>
+				<nav class="menuLista__nav">
+					<a href="#a"><span>Item A</span></a>
+					<a href="#b"><span>Item B</span></a>
+					<a href="#c"><span>Item C</span></a>
+				</nav>
+			</div>
+		</div>
+		<main>
+			<h1 id="hamburguer" class="hamburguer" data-method="add">☰</h1>
+		</main>
+		<div id="obfuscator" class="obfuscator" data-method="remove"></div>
+		<script src="../dist/swipemenu.js"></script>
+		<script>
+			var swipeMenu = new SwipeMenu('#menu');
+			var hamburguer = document.querySelector('#hamburguer');
+			var obfuscator = document.querySelector('#obfuscator');
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Example - Swipe Menu</title>
-    <link rel="stylesheet" href="example.css">
-    <link rel="stylesheet" href="../dist/swipemenu.css">
-</head>
+			function onToggle(event, method) {
+				var m = event ? event.currentTarget.dataset.method : method || 'remove';
+				swipeMenu.menu.classList[m]('swipemenu--open');
+				obfuscator.classList[m]('obfuscator--visible');
+			}
 
-<body>
-    <div id="menu" class="menu">
-        <div class="menuLista">
-            <h3 class="menuLista__title">Options</h3>
-            <nav class="menuLista__nav">
-                <a href="#a"><span>Item A</span></a>
-                <a href="#b"><span>Item B</span></a>
-                <a href="#c"><span>Item C</span></a>
-            </nav>
-        </div>
-    </div>
-    <main>
-        <h1 id="hamburguer" class="hamburguer" data-method="add">☰</h1>
-    </main>
-    <div id="obfuscator" class="obfuscator" data-method="remove"></div>
-    <script src="../dist/swipemenu.js"></script>
-    <script>
-      var swipeMenu = new SwipeMenu('#menu');
-      var hamburguer = document.querySelector('#hamburguer');
-      var obfuscator = document.querySelector('#obfuscator');
-
-      function onToggle(event, method) {
-          var m = event ? event.currentTarget.dataset.method : method || 'remove';
-          swipeMenu.menu.classList[m]('menu--open');
-          obfuscator.classList[m]('obfuscator--visible');
-      }
-
-      hamburguer.addEventListener('click', onToggle);
-      obfuscator.addEventListener('click', onToggle);
-      swipeMenu.ee.on('trigger', function(method) {
-          onToggle(null, method);
-      });
-    </script>
-</body>
-
+			hamburguer.addEventListener('click', onToggle);
+			obfuscator.addEventListener('click', onToggle);
+			swipeMenu.menu.addEventListener('update', function(event) {
+				obfuscator.classList.add('obfuscator--update');
+				obfuscator.style.opacity = event.detail.percent;
+				onToggle(null, event.detail.method);
+			});
+			swipeMenu.menu.addEventListener('end', function(event) {
+				obfuscator.classList.remove('obfuscator--update');
+				obfuscator.style.opacity = '';
+				onToggle(null, event.detail.method);
+			});
+		</script>
+	</body>
 </html>
