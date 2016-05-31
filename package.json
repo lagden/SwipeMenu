@@ -1,6 +1,6 @@
 {
   "name": "swipe-menu",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "It's a lightweight JavaScript library for swiping off-canvas menus",
   "main": "dist/swipemenu.js",
   "jsnext:main": "src/swipemenu.js",
@@ -11,7 +11,7 @@
     "test": "BABEL_ENV=ava nyc ava",
     "rollup": "BABEL_ENV=rollup rollup -c -o dist/swipemenu.js",
     "styl": "stylus src/swipemenu.styl -o dist",
-    "docs": "./node_modules/jsdoc/jsdoc.js src/swipemenu.js -d docs",
+    "docs": "docco src/swipemenu.js",
     "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
     "build": "npm test && npm run styl && npm run rollup && npm run pretty && npm run docs",
     "prepublish": "rm -rf dist && npm run build"
@@ -41,8 +41,8 @@
     "babel-preset-es2015-rollup": "1.1.1",
     "babel-register": "6.8.0",
     "coveralls": "2.11.9",
+    "docco": "0.7.0",
     "esformatter": "0.9.3",
-    "jsdoc": "3.4.0",
     "jsdom": "9.2.0",
     "nyc": "6.4.4",
     "rollup": "0.26.2",

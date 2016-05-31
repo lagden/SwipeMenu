@@ -1,23 +1,11 @@
 'use strict';
 
-/**
- * Apenas um show
- * blablab
- *
- * @see https://lagden.in
- * @author felipe
- */
-
-/**
- * Returns the library version.
- *
- * @private
- * @returns {Boolean} If is Apple Mobile.
- */
+// Verifica se é um dispositivo com iOS.
 function isIOS() {
 	return (/(iPhone|iPad|iPod)/gi).test(navigator.platform);
 }
 
+// Retorna o `target` que combina com o `selector` ou `falso`
 function bubbling(target, selector) {
 	if (!target) {
 		return false;
@@ -29,8 +17,12 @@ function bubbling(target, selector) {
 	return bubbling(target.parentElement, selector);
 }
 
+// ### Class SwipeMenu
 class SwipeMenu {
+
+	// Construtor necessita do **id** do elemento
 	constructor(menu, swipePoint = 20) {
+		// Se for iOS (Safari), não executa por causa do comportamento de swipe (**back** e **forward**) nativo do sistema
 		if (isIOS()) {
 			return;
 		}
@@ -59,6 +51,9 @@ class SwipeMenu {
 		document.body.addEventListener('touchcancel', this, true);
 	}
 
+	// #### Handlers
+
+	// Faz algo bacana
 	onTouchstart(event) {
 		const menuIsOpen = this.menu.classList.contains('swipemenu--open');
 		this.check = false;
@@ -66,6 +61,7 @@ class SwipeMenu {
 		this.target = menuIsOpen ? bubbling(event.target, this.menuSelector) : event.currentTarget;
 	}
 
+	// Esse move
 	onTouchmove(event) {
 		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
 			event.preventDefault();
@@ -84,6 +80,7 @@ class SwipeMenu {
 		}
 	}
 
+	// Esse para de mover
 	onTouchend() {
 		if (this.check) {
 			const translateX = Number(this.menu.style.transform.replace(/[^\d]/g, ''));
@@ -95,10 +92,12 @@ class SwipeMenu {
 		}
 	}
 
+	// Em caso de comportamento ilícito
 	onTouchcancel() {
 		this.onTouchend();
 	}
 
+	// Abre
 	open() {
 		this.param.detail.percent = 1;
 		this.param.detail.method = 'add';
@@ -106,6 +105,7 @@ class SwipeMenu {
 		this.menu.classList.add('swipemenu--open');
 	}
 
+	// Fecha
 	close() {
 		this.param.detail.percent = 0;
 		this.param.detail.method = 'remove';
@@ -113,6 +113,7 @@ class SwipeMenu {
 		this.menu.classList.remove('swipemenu--open');
 	}
 
+	// Manuseia os eventos
 	handleEvent(event) {
 		const ev = `${event.type.charAt(0).toUpperCase()}${event.type.slice(1)}`;
 		if (this[`on${ev}`]) {
@@ -121,4 +122,5 @@ class SwipeMenu {
 	}
 }
 
+// Exporta o módulo
 export default SwipeMenu;

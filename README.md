@@ -28,7 +28,7 @@ npm i -S swipe-menu
 
 ## Docs
 
-[See docs](https://felipoliveira.github.io/SwipeMenu/docs)
+[See docs](https://felipoliveira.github.io/SwipeMenu/docs/SwipeMenu.html)
 
 
 ## Usage

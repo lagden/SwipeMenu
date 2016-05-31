@@ -2,6 +2,7 @@
 coverage
 test
 example
+docs
 .e*
 .g*
 .t*
