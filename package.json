@@ -13,7 +13,7 @@
     "styl": "stylus src/swipemenu.styl -o dist",
     "docs": "docco src/swipemenu.js",
     "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
-    "build": "npm test && npm run styl && npm run rollup && npm run pretty && npm run docs",
+    "build": "npm test && npm run rollup && npm run pretty && npm run styl && npm run docs",
     "prepublish": "rm -rf dist && npm run build"
   },
   "repository": {
