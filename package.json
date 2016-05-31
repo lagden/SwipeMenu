@@ -47,6 +47,7 @@
     "nyc": "6.4.4",
     "rollup": "0.26.2",
     "rollup-plugin-babel": "2.4.0",
+    "stylus": "0.54.5",
     "xo": "0.15.0"
   },
   "xo": {
