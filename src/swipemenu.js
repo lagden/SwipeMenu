@@ -55,7 +55,6 @@ class SwipeMenu {
 
 	// Faz algo bacana
 	onTouchstart(event) {
-		console.log('aquiii');
 		const menuIsOpen = this.menu.classList.contains('swipemenu--open');
 		this.check = false;
 		this.startX = event.targetTouches[0].pageX;
@@ -64,9 +63,8 @@ class SwipeMenu {
 
 	// Esse move
 	onTouchmove(event) {
+		event.stopPropagation();
 		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
-			event.preventDefault();
-			event.stopPropagation();
 			this.check = true;
 			if (this.menu.classList.contains('swipemenu--dragging') === false) {
 				this.menu.classList.add('swipemenu--dragging');
