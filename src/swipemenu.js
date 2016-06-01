@@ -82,7 +82,7 @@ class SwipeMenu {
 	// Esse para de mover
 	onTouchend() {
 		if (this.check) {
-			const translateX = Number(this.menu.style.transform.replace(/[^\-^\d]/g, ''));
+			const translateX = Number(this.menu.style.transform.replace(/[^\d]/g, ''));
 			const method = translateX < this.width / 2 ? 'open' : 'close';
 			this.check = false;
 			this.menu.style.transform = '';
