@@ -38,7 +38,7 @@ class SwipeMenu {
 		this.param = {
 			detail: {
 				method: null,
-				percent: null
+				percent: 0
 			}
 		};
 		this.ceUpdate = new CustomEvent('update', this.param);
@@ -63,8 +63,9 @@ class SwipeMenu {
 
 	// Esse move
 	onTouchmove(event) {
-		event.stopPropagation();
-		if (this.startX <= this.swipePoint || this.target.id === this.menuSelector.substr(1)) {
+		if (this.startX <= this.swipePoint || this.target.id === this.menu.id) {
+			event.preventDefault();
+			event.stopPropagation();
 			this.check = true;
 			if (this.menu.classList.contains('swipemenu--dragging') === false) {
 				this.menu.classList.add('swipemenu--dragging');
@@ -72,7 +73,7 @@ class SwipeMenu {
 			const moveX = event.targetTouches[0].pageX;
 			const position = this.target.id === this.menu.id ? moveX - this.startX : moveX - this.width;
 			if (position > -this.width && position <= 0) {
-				this.menu.style.transform = `translateX(${position}px)`;
+				this.menu.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${position}, 0, 0, 1)`;
 				this.param.detail.percent = 1 - Math.abs(position) / Math.abs(this.width);
 				this.menu.dispatchEvent(this.ceUpdate);
 			}
@@ -82,8 +83,7 @@ class SwipeMenu {
 	// Esse para de mover
 	onTouchend() {
 		if (this.check) {
-			const translateX = Number(this.menu.style.transform.replace(/[^\d]/g, ''));
-			const method = translateX < this.width / 2 ? 'open' : 'close';
+			const method = this.param.detail.percent > 0.5 ? 'open' : 'close';
 			this.check = false;
 			this.menu.style.transform = '';
 			this.menu.classList.remove('swipemenu--dragging');
