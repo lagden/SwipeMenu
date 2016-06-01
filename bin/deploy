@@ -17,10 +17,10 @@ GO=/tmp/${MD5}
 mkdir -p ${GO}
 npm run build
 cp -r dist ${GO}
-cp -r docs ${GO}/dist
-cp example/* ${GO}/dist
+cp -r docs ${GO}
+cp -r example ${GO}
 
-cd ${GO}/dist
+cd ${GO}
 git init
 git add .
 git commit -m "Deploy to GitHub Pages"
