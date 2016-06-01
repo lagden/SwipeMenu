@@ -7,3 +7,4 @@ global.document = jsdom.jsdom([
 global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
 global.CustomEvent = global.window.CustomEvent;
+global.TouchEvent = global.window.TouchEvent;

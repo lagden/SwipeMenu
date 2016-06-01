@@ -55,6 +55,7 @@ class SwipeMenu {
 
 	// Faz algo bacana
 	onTouchstart(event) {
+		console.log('aquiii');
 		const menuIsOpen = this.menu.classList.contains('swipemenu--open');
 		this.check = false;
 		this.startX = event.targetTouches[0].pageX;
