@@ -14,6 +14,7 @@
     "docs": "docco src/swipemenu.js",
     "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
     "build": "npm test && npm run rollup && npm run pretty && npm run styl && npm run docs",
+    "watch": "watch 'xo && npm run rollup' src --interval=1",
     "prepublish": "rm -rf dist && npm run build"
   },
   "repository": {
