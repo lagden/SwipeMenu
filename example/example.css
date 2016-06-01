@@ -27,6 +27,7 @@ body {
   z-index: 4;
   visibility: hidden;
   background-color: #b22028;
+  will-change: opacity;
   opacity: 0;
   transition-property: opacity;
   transition-duration: 0.2s;
