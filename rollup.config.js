@@ -9,5 +9,6 @@ export default {
 	moduleName: 'SwipeMenu',
 	plugins: [
 		babel()
-	]
+	],
+	sourceMap: true
 };
