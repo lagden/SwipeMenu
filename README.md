@@ -3,12 +3,11 @@
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
 [![Coverage Status][coveralls-img]][coveralls]
-[![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 [![XO code style][xo-img]][xo]
 
-[npm-img]:       https://img.shields.io/npm/v/lagden-SwipeMenu.svg
-[npm]:           https://www.npmjs.com/package/lagden-SwipeMenu
+[npm-img]:       https://img.shields.io/npm/v/lagden-swipe-menu.svg
+[npm]:           https://www.npmjs.com/package/lagden-swipe-menu
 [ci-img]:        https://travis-ci.org/lagden/SwipeMenu.svg
 [ci]:            https://travis-ci.org/lagden/SwipeMenu
 [coveralls-img]: https://coveralls.io/repos/github/lagden/SwipeMenu/badge.svg?branch=master
