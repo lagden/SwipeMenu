@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-import babel from 'rollup-plugin-babel';
+import buble from 'rollup-plugin-buble'
 
 export default {
-	entry: 'src/swipemenu.js',
+	entry: 'src/index.js',
 	format: 'umd',
-	dest: 'dist/swipemenu.js',
+	dest: 'dist/index.js',
 	moduleName: 'SwipeMenu',
 	plugins: [
-		babel()
+		buble()
 	],
 	sourceMap: true
-};
+}

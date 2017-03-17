@@ -1,18 +1,24 @@
 # SwipeMenu
 
+[![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
-[![Coverage Status][cover-img]][cover]
+[![Coverage Status][coveralls-img]][coveralls]
 [![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
+[![XO code style][xo-img]][xo]
 
-[ci-img]:     https://travis-ci.org/felipoliveira/SwipeMenu.svg
-[ci]:         https://travis-ci.org/felipoliveira/SwipeMenu
-[cover-img]:  https://coveralls.io/repos/felipoliveira/SwipeMenu/badge.svg?branch=master&service=github
-[cover]:      https://coveralls.io/github/felipoliveira/SwipeMenu?branch=master
-[dep-img]:    https://david-dm.org/felipoliveira/SwipeMenu.svg
-[dep]:        https://david-dm.org/felipoliveira/SwipeMenu
-[devDep-img]: https://david-dm.org/felipoliveira/SwipeMenu/dev-status.svg
-[devDep]:     https://david-dm.org/felipoliveira/SwipeMenu#info=devDependencies
+[npm-img]:       https://img.shields.io/npm/v/lagden-SwipeMenu.svg
+[npm]:           https://www.npmjs.com/package/lagden-SwipeMenu
+[ci-img]:        https://travis-ci.org/lagden/SwipeMenu.svg
+[ci]:            https://travis-ci.org/lagden/SwipeMenu
+[coveralls-img]: https://coveralls.io/repos/github/lagden/SwipeMenu/badge.svg?branch=master
+[coveralls]:     https://coveralls.io/github/lagden/SwipeMenu?branch=master
+[dep-img]:       https://david-dm.org/lagden/SwipeMenu.svg
+[dep]:           https://david-dm.org/lagden/SwipeMenu
+[devDep-img]:    https://david-dm.org/lagden/SwipeMenu/dev-status.svg
+[devDep]:        https://david-dm.org/lagden/SwipeMenu#info=devDependencies
+[xo-img]:        https://img.shields.io/badge/code_style-XO-5ed9c7.svg
+[xo]:            https://github.com/sindresorhus/xo
 
 
 It's a lightweight JavaScript library for swiping off-canvas menus
