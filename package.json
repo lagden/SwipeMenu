@@ -16,11 +16,11 @@
     "url": "https://github.com/lagden/SwipeMenu/issues",
     "email": "lagden@gmail.com"
   },
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "repository": "lagden/SwipeMenu",
-  "main": "index.js",
-  "jsnext:main": "src/index.js",
   "scripts": {
-    "rm": "rm -rf dist",
+    "rm": "rm -rf dist && mkdir dist",
     "styl": "stylus src/swipemenu.styl -o dist",
     "rollup": "BABEL_ENV=rollup rollup -c",
     "gzip": "find ./dist -name '*.js' -type f -exec sh -c 'gzip -c --best {} > {}.gz' \\;",
@@ -28,9 +28,9 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "pretest": "xo",
     "test": "BABEL_ENV=ava nyc ava",
-    "prebuild": "npm rm",
+    "prebuild": "npm run rm",
     "build": "npm run styl && npm run rollup && npm run gzip",
-    "prepublish": "rm -rf dist && npm run build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "ava": "0.17.0",
